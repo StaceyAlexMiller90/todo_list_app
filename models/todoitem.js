@@ -1,12 +1,16 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const todoitem = sequelize.define('todoitem', {
+  const todoItem = sequelize.define('todoItem', {
     task: DataTypes.STRING,
     deadline: DataTypes.STRING,
     important: DataTypes.BOOLEAN
   }, {});
-  todoitem.associate = function(models) {
-    // associations can be defined here
+  todoItem.associate = function(models) {
+    todoItem.belongsTo(models.todoList)
+    todoItem.belongsToMany(models.tag, {
+      through: "itemTags",
+      foreignKey: "todoItemId",
+    });
   };
-  return todoitem;
+  return todoItem;
 };

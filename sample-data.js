@@ -20,4 +20,4 @@ async function createSampleTodoItems() {
   }
 }
 
-createSampleTodoItems().then(todos => console.log(todos));
+// createSampleTodoItems().then(todos => console.log(todos));

@@ -6,21 +6,21 @@ async function getUsers() {
   return allUsers.map(user => user.get({ plain: true }));
 }
 
-getUsers().then(users => console.log(users));
+// getUsers().then(users => console.log(users));
 
 async function getTodoItems() {
   const allTodoItems = await TodoItem.findAll();
   return allTodoItems.map(item => item.get({ plain: true }));
 }
 
-getTodoItems().then(result => console.log(result));
+// getTodoItems().then(result => console.log(result));
 
 async function getUserByPk(key) {
   const user = await User.findByPk(key);
   return user ? user.get({ plain: true }) : "Not found!";
 }
 
-getUserByPk(2).then(result => console.log(result));
+// getUserByPk(2).then(result => console.log(result));
 
 async function newUser({ name, email, phone }) {
   const newUser = await User.create({ name, email, phone });
@@ -34,5 +34,5 @@ async function importantTodos() {
   return todos.map(todo => todo.get({ plain: true }));
 }
 
-importantTodos().then(result => console.log(result));
+// importantTodos().then(result => console.log(result));
 
