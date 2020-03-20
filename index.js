@@ -4,10 +4,11 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 const User = require("./models").user;
 const TodoList = require("./models").todoList;
+const corsMiddleWare = require("cors");
 
 app.listen(PORT, () => console.log(`Server started in port: ${PORT}`));
 
-app.use(express.json());
+app.use(corsMiddleWare(),express.json());
 
 app.post("/users", async (req, res, next) => {
   try {
